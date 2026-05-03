@@ -22,6 +22,7 @@ export default defineConfig(({mode}) => {
     },
     build: {
       target: 'esnext',
+      sourcemap: false,
       rollupOptions: {
         output: {
           manualChunks(id) {
