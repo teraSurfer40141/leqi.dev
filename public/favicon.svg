@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#141312" />
-  <text x="50" y="55" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="normal" font-style="italic" fill="#d8c5b5" text-anchor="middle" dominant-baseline="middle">Y</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" fill="#0f0d0a"/>
+  <text
+    x="16"
+    y="23"
+    font-family="'Cormorant Garamond', 'Garamond', 'Georgia', serif"
+    font-size="17"
+    font-weight="300"
+    fill="#c8974a"
+    text-anchor="middle"
+    letter-spacing="-0.5"
+  >LQ</text>
 </svg>
