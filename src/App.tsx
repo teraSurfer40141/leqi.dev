@@ -159,7 +159,7 @@ function ExperienceSection() {
             <div className="flex-1 mt-1 md:mt-0">
               <h3 className="font-serif text-[24px] font-[300] text-[#f2ede8] mb-3 leading-none mt-[-2px]">
                 {exp.url ? (
-                  <a href={exp.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#8B2500] hover:underline transition-colors font-[300]">
+                  <a href={exp.url} target="_blank" rel="noopener noreferrer" className="font-[300]">
                     {exp.company}
                   </a>
                 ) : (
@@ -185,9 +185,9 @@ function ResearchSection() {
       title: 'WalledEval: A Comprehensive Safety Evaluation Toolkit for Large Language Models',
       description: 'Safety evaluation toolkit for LLMs.',
       links: [
-        { text: 'Publication', url: '#' },
-        { text: 'PDF', url: '#' },
-        { text: 'Repo', url: '#' }
+        { text: 'Publication', url: 'https://aclanthology.org/2024.emnlp-demo.33/' },
+        { text: 'PDF', url: 'https://aclanthology.org/2024.emnlp-demo.33.pdf' },
+        { text: 'Repo', url: 'https://github.com/walledai/walledeval' }
       ]
     },
     {
@@ -195,8 +195,8 @@ function ResearchSection() {
       title: 'A Novel Feature Vector for AI-assisted Windows Malware Detection',
       description: 'Behavioural approach to detecting malware at runtime.',
       links: [
-        { text: 'Publication', url: '#' },
-        { text: 'PDF', url: '#' }
+        { text: 'Publication', url: 'https://ieeexplore.ieee.org/document/10427844/' },
+        { text: 'PDF', url: 'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10427844' }
       ]
     },
   ];
@@ -223,7 +223,7 @@ function ResearchSection() {
               <div className="flex flex-wrap gap-2 text-[#6a6058] font-mono text-[12px] leading-[1.8]">
                 {paper.links.map((link, i) => (
                   <React.Fragment key={link.text}>
-                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#8B2500] transition-colors font-[300]">
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="hover:text-[#f2ede8] transition-colors duration-300 ease-in-out font-[300]">
                       {link.text}
                     </a>
                     {i < paper.links.length - 1 && <span>·</span>}
@@ -321,7 +321,7 @@ function Footer() {
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="text-[#6a6058] hover:text-[#8B2500] transition-colors font-[300] leading-[1.8]">
+    <a href={href} className="text-[#6a6058] hover:text-[#f2ede8] transition-colors duration-300 ease-in-out font-[300] leading-[1.8]">
       {children}
     </a>
   );
