@@ -185,8 +185,8 @@ function ResearchSection() {
       title: 'WalledEval: A Comprehensive Safety Evaluation Toolkit for Large Language Models',
       description: 'Safety evaluation toolkit for LLMs.',
       links: [
-        { text: 'Publication', url: 'https://aclanthology.org/2024.emnlp-demo.33/' },
-        { text: 'PDF', url: 'https://aclanthology.org/2024.emnlp-demo.33.pdf' },
+        { text: 'Publication', url: 'https://aclanthology.org/2024.emnlp-demo.42/' },
+        { text: 'PDF', url: 'https://arxiv.org/pdf/2408.03837' },
         { text: 'Repo', url: 'https://github.com/walledai/walledeval' }
       ]
     },
@@ -195,8 +195,8 @@ function ResearchSection() {
       title: 'A Novel Feature Vector for AI-assisted Windows Malware Detection',
       description: 'Behavioural approach to detecting malware at runtime.',
       links: [
-        { text: 'Publication', url: 'https://ieeexplore.ieee.org/document/10427844/' },
-        { text: 'PDF', url: 'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10427844' }
+        { text: 'Publication', url: 'https://ieeexplore.ieee.org/document/10361451' },
+        { text: 'PDF', url: 'https://www.researchgate.net/profile/Tram-Truong-Huu/publication/374030409_A_Novel_Feature_Vector_for_AI-assisted_Windows_Malware_Detection/links/650aafc7d5293c106cc8ce59/A-Novel-Feature-Vector-for-AI-Assisted-Windows-Malware-Detection.pdf#page=1.00&gsr=0' }
       ]
     },
   ];
