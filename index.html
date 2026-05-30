@@ -6,7 +6,7 @@
   <meta name="description" content="Yau Le Qi — Computer Science, Cambridge">
   <title>Yau Le Qi</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&family=Noto+Serif+SC:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&family=Space+Grotesk:wght@400;500&family=Noto+Serif+SC:wght@400&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -31,9 +31,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem 3rem;
-      max-width: 680px;
-      margin: 0 auto;
+      padding: 2rem clamp(3rem, 8vw, 6rem);
       z-index: 100;
       opacity: 0;
       animation: fadeIn 1s ease 2.8s forwards;
@@ -58,10 +56,10 @@
     }
 
     .nav-right a {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 400;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
       color: #8a8578;
       text-decoration: none;
       transition: color 0.3s;
@@ -113,7 +111,7 @@
     }
 
     .hero-links a {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 400;
       font-size: 0.75rem;
       letter-spacing: 0.05em;
