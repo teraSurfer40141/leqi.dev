@@ -8,30 +8,27 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&family=Noto+Serif+SC:wght@400&display=swap');
 
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: #0f0d0a;
+      background: #080808;
       color: #e8e4db;
       font-family: 'Inter', sans-serif;
       font-weight: 300;
       font-size: 17px;
       line-height: 1.6;
-      max-width: 700px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 4rem 4rem 6rem 4rem;
+      padding: 0 3rem 8rem;
     }
 
+    /* ── Nav ── */
     nav {
       position: fixed;
       top: 0;
@@ -40,8 +37,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 4rem;
-      max-width: 700px;
+      padding: 2rem 3rem;
+      max-width: 680px;
       margin: 0 auto;
       z-index: 100;
     }
@@ -49,121 +46,158 @@
     .nav-left {
       font-family: 'Noto Serif SC', serif;
       font-weight: 400;
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #c4a747;
       text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s;
     }
+
+    .nav-left:hover { opacity: 1; }
 
     .nav-right {
       display: flex;
-      gap: 0.25rem;
+      gap: 0.3rem;
       align-items: center;
     }
 
     .nav-right a {
       font-family: 'Inter', sans-serif;
       font-weight: 400;
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
       color: #8a8578;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.3s;
+      opacity: 0.6;
     }
 
-    .nav-right a:hover {
-      color: #e8e4db;
-    }
+    .nav-right a:hover { color: #e8e4db; opacity: 1; }
+    .nav-sep { color: #8a8578; opacity: 0.25; font-size: 0.65rem; }
 
-    .nav-sep {
-      color: #8a8578;
-      opacity: 0.4;
-      font-size: 0.7rem;
-    }
-
+    /* ── Hero — the Daibutsu ── */
     #top {
-      padding-top: 25vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      padding-bottom: 8vh;
     }
 
     .hero-name {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      color: #e8e4db;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
+      font-size: clamp(4rem, 12vw, 9rem);
+      color: #c4a747;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
     }
 
     .hero-subtitle {
       font-family: 'Noto Serif SC', serif;
       font-weight: 400;
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: #c4a747;
-      letter-spacing: 0.15em;
-      margin-top: 0.75rem;
+      letter-spacing: 0.2em;
+      margin-top: 2rem;
+      opacity: 0.5;
     }
 
     .hero-rule {
-      width: 70px;
-      border-bottom: 2px solid #c4a747;
-      margin: 1.5rem auto 0;
+      width: 1px;
+      height: 60px;
+      background: #c4a747;
+      margin: 3rem auto 0;
+      opacity: 0.3;
     }
 
+    .scroll-hint {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: #8a8578;
+      opacity: 0.3;
+      margin-top: 2rem;
+      text-transform: lowercase;
+    }
+
+    /* ── Sections — the halls ── */
     section {
-      margin-top: 50px;
-      padding-top: 60px;
-      border-top: 1px solid rgba(138, 133, 120, 0.2);
+      margin-top: 0;
+      padding-top: 200px;
+      padding-bottom: 40px;
+      border-top: none;
     }
 
     .section-header {
       font-family: 'Inter', sans-serif;
       font-weight: 400;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
       color: #8a8578;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+      opacity: 0.5;
     }
 
-    .section-marker {
-      color: #c4a747;
+    .section-marker { color: #c4a747; opacity: 1; }
+
+    /* ── About ── */
+    #about p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #e8e4db;
+      max-width: 520px;
     }
 
+    /* ── Experience ── */
     .exp-entry {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+      padding-left: 130px;
+      position: relative;
     }
 
     .exp-year {
+      position: absolute;
+      left: 0;
+      top: 0;
       color: #8a8578;
-      font-weight: 400;
-      display: inline-block;
-      width: 120px;
+      font-weight: 300;
+      font-size: 0.85rem;
+      width: 110px;
+      opacity: 0.5;
     }
 
     .exp-role {
       color: #e8e4db;
+      font-size: 0.95rem;
     }
 
     .exp-role a {
       color: #8a8578;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.3s;
     }
 
-    .exp-role a:hover {
-      color: #e8e4db;
-    }
+    .exp-role a:hover { color: #e8e4db; }
 
+    /* ── Research ── */
     .research-entry {
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
     }
 
     .research-title {
       font-family: 'Playfair Display', serif;
       font-weight: 400;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       color: #e8e4db;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
     .research-venue {
@@ -172,37 +206,31 @@
       font-size: 0.8rem;
       color: #8a8578;
       font-style: italic;
-      margin-bottom: 0.25rem;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
     }
 
     .research-desc {
       font-family: 'Inter', sans-serif;
       font-weight: 300;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #8a8578;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
     }
 
-    .research-links {
-      font-size: 0.8rem;
-    }
-
-    .research-links .link-sep {
-      color: #8a8578;
-      opacity: 0.4;
-    }
+    .research-links { font-size: 0.8rem; margin-top: 0.75rem; }
+    .research-links .link-sep { color: #8a8578; opacity: 0.3; }
 
     a.outbound {
       font-family: 'Inter', sans-serif;
       font-size: 0.8rem;
       color: #8a8578;
       text-decoration: none;
-      transition: color 0.2s ease;
+      transition: color 0.3s ease;
     }
 
-    a.outbound:hover {
-      color: #e8e4db;
-    }
+    a.outbound:hover { color: #e8e4db; }
 
     a.outbound::after {
       content: " ↗";
@@ -210,109 +238,107 @@
       font-size: 0.8em;
     }
 
+    /* ── Side Quests ── */
     .quest-list {
       list-style: none;
       padding: 0;
     }
 
     .quest-list li {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
       color: #e8e4db;
+      opacity: 0.85;
     }
 
     .quest-year {
       color: #8a8578;
-      font-weight: 400;
+      font-weight: 300;
+      opacity: 0.5;
     }
 
-    .quest-desc {
-      color: #e8e4db;
-    }
+    .quest-desc { color: #e8e4db; }
 
+    /* ── Footer — the inscription ── */
     footer {
-      margin-top: 50px;
-      padding-top: 60px;
-      border-top: 1px solid rgba(138, 133, 120, 0.2);
+      margin-top: 100px;
+      padding-top: 80px;
       text-align: center;
+      border-top: 1px solid rgba(196, 167, 71, 0.1);
     }
 
     .footer-links {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .footer-links a {
       font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
       color: #8a8578;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.3s;
+      opacity: 0.5;
+      letter-spacing: 0.05em;
     }
 
-    .footer-links a:hover {
-      color: #e8e4db;
-    }
-
-    .footer-sep {
-      color: #8a8578;
-      opacity: 0.4;
-    }
+    .footer-links a:hover { color: #e8e4db; opacity: 1; }
+    .footer-sep { color: #8a8578; opacity: 0.2; margin: 0 0.3rem; }
 
     .footer-copyright {
       font-family: 'Inter', sans-serif;
-      color: rgba(138, 133, 120, 0.6);
-      font-size: 0.85rem;
-      margin-bottom: 0.5rem;
+      color: #8a8578;
+      font-size: 0.75rem;
+      opacity: 0.25;
+      margin-bottom: 1rem;
     }
 
     .footer-chinese {
       font-family: 'Noto Serif SC', serif;
       font-weight: 400;
-      font-size: 0.85rem;
+      font-size: 1.1rem;
       color: #c4a747;
-      margin-top: 0.5rem;
+      opacity: 0.4;
+      letter-spacing: 0.15em;
     }
 
+    /* ── Focus ── */
     a:focus-visible {
       outline: 1px solid #c4a747;
-      outline-offset: 2px;
+      outline-offset: 3px;
     }
 
+    /* ── Responsive ── */
     @media (max-width: 600px) {
-      body {
-        padding: 2rem;
-        font-size: 16px;
-      }
+      body { padding: 0 1.5rem 6rem; }
 
-      nav {
-        padding: 1rem 1.5rem;
-      }
+      nav { padding: 1.2rem 1.5rem; }
 
-      .nav-right {
-        gap: 0.15rem;
-      }
-
-      .nav-right a {
-        font-size: 0.65rem;
-      }
+      .nav-right { gap: 0.2rem; }
+      .nav-right a { font-size: 0.6rem; }
 
       .hero-name {
-        font-size: clamp(2rem, 8vw, 3rem);
+        font-size: clamp(3rem, 14vw, 6rem);
       }
 
-      section {
-        margin-top: 30px;
-        padding-top: 30px;
+      #top { padding-bottom: 6vh; }
+
+      section { padding-top: 120px; }
+
+      .exp-entry {
+        padding-left: 0;
+        margin-top: 1.5rem;
       }
 
       .exp-year {
-        display: block;
+        position: static;
         width: auto;
-        margin-bottom: 0.25rem;
+        display: block;
+        margin-bottom: 0.3rem;
       }
 
-      footer {
-        margin-top: 30px;
-        padding-top: 30px;
-      }
+      .research-title { font-size: 1.1rem; }
+
+      footer { margin-top: 60px; padding-top: 50px; }
     }
   </style>
 </head>
@@ -322,6 +348,7 @@
       <h1 class="hero-name">Yau Le Qi</h1>
       <p class="hero-subtitle">饶乐祺 · 自强不息</p>
       <div class="hero-rule"></div>
+      <p class="scroll-hint">scroll</p>
     </header>
 
     <section id="about">
@@ -336,15 +363,15 @@
         <span class="exp-role">AI Engineer Intern, <a href="https://www.questventures.com">Quest Ventures</a></span>
       </div>
       <div class="exp-entry">
-        <span class="exp-year">2024–2026 —</span>
+        <span class="exp-year">2024–2026</span>
         <span class="exp-role">Section Commander, Singapore Army</span>
       </div>
       <div class="exp-entry">
-        <span class="exp-year">2024 —</span>
+        <span class="exp-year">2024</span>
         <span class="exp-role">Educational Technology Intern, <a href="https://tinkertanker.com">Tinkertanker</a></span>
       </div>
       <div class="exp-entry">
-        <span class="exp-year">2022 —</span>
+        <span class="exp-year">2022</span>
         <span class="exp-role">Cybersecurity Intern, <a href="https://www.dsta.gov.sg">DSTA</a></span>
       </div>
     </section>
@@ -381,7 +408,7 @@
 
     <footer>
       <div class="footer-links">
-        <a href="https://github.com/teraSurfer40141">GitHub</a><span class="footer-sep"> · </span><a href="https://www.linkedin.com/in/lqyau/">LinkedIn</a><span class="footer-sep"> · </span><a href="mailto:leqi@yauleqi.com">Email</a>
+        <a href="https://github.com/teraSurfer40141">GitHub</a><span class="footer-sep">·</span><a href="https://www.linkedin.com/in/lqyau/">LinkedIn</a><span class="footer-sep">·</span><a href="mailto:leqi@yauleqi.com">Email</a>
       </div>
       <div class="footer-copyright">&copy; 2026 Yau Le Qi</div>
       <div class="footer-chinese">饶乐祺 · 自强不息</div>
