@@ -43,10 +43,10 @@
     }
 
     nav.nav-scrolled {
-      background: rgba(8, 8, 8, 0.8);
+      background: rgba(20, 18, 14, 0.85);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(138, 133, 120, 0.15);
+      border-bottom: 1px solid rgba(196, 167, 71, 0.08);
     }
 
     nav .inner {
@@ -62,7 +62,7 @@
       font-size: 1rem;
       color: #c4a747;
       text-decoration: none;
-      opacity: 0.7;
+      opacity: 0.8;
       transition: opacity 0.3s;
     }
 
@@ -92,9 +92,10 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
+      padding-top: clamp(160px, 22vh, 220px);
       padding-bottom: 8vh;
     }
 
@@ -416,6 +417,14 @@
 </head>
 <body>
   <main>
+    <nav>
+      <div class="inner">
+        <a href="#top" class="nav-left">饶</a>
+        <div class="nav-right">
+          <a href="#experience">Experience</a><a href="#research">Research</a><a href="#achievements">Achievements</a>
+        </div>
+      </div>
+    </nav>
     <header id="top">
       <h1 class="hero-name">Yau Le Qi</h1>
       <p class="hero-subtitle">饶乐祺 · 自强不息</p>
@@ -485,14 +494,6 @@
       <div class="footer-copyright">&copy; 2026 Yau Le Qi</div>
     </footer>
 
-    <nav>
-      <div class="inner">
-        <a href="#top" class="nav-left">饶</a>
-        <div class="nav-right">
-          <a href="#experience">Experience</a><a href="#research">Research</a><a href="#achievements">Achievements</a>
-        </div>
-      </div>
-    </nav>
   </main>
 
   <script>
