@@ -31,22 +31,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem clamp(3rem, 8vw, 6rem);
+      padding: 20px 24px;
       z-index: 100;
-      max-width: 680px;
+      max-width: 1024px;
       margin: 0 auto;
-      background: transparent;
-      transition: background 0.3s ease, border-bottom 0.3s ease;
-      border-bottom: 1px solid transparent;
-      opacity: 0;
-      animation: fadeIn 0.6s ease 1.6s forwards;
-    }
-
-    nav.nav-scrolled {
-      background: rgba(20, 18, 14, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(196, 167, 71, 0.08);
+      background: #0d0d0a;
+      border-bottom: 1px solid rgba(196, 167, 71, 0.06);
     }
 
     nav .inner {
@@ -401,7 +391,7 @@
 
     @media (max-width: 600px) {
       body { padding: 0 1.5rem 6rem; }
-      nav { padding: 1.2rem 1.5rem; }
+      nav { padding: 14px 20px; }
       .nav-right { gap: 32px; }
       .nav-right a { font-size: 0.6rem; }
       .hero-name { font-size: clamp(3rem, 14vw, 6rem); }
@@ -497,17 +487,6 @@
   </main>
 
   <script>
-    // Nav frosted glass on scroll
-    window.addEventListener('scroll', function() {
-      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      var nav = document.querySelector('nav');
-      if (scrollTop > 100) {
-        nav.classList.add('nav-scrolled');
-      } else {
-        nav.classList.remove('nav-scrolled');
-      }
-    });
-
     // Scroll reveal
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
