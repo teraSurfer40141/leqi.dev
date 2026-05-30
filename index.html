@@ -81,7 +81,7 @@
       justify-content: flex-start;
       align-items: center;
       text-align: center;
-      padding-top: max(200px, 39vh);
+      padding-top: max(200px, 38vh);
       padding-bottom: 8vh;
     }
 
@@ -93,7 +93,7 @@
       line-height: 0.95;
       letter-spacing: -0.02em;
       opacity: 0;
-      animation: fadeIn 0.8s ease 0.2s forwards;
+      animation: heroReveal 1.4s cubic-bezier(.22,1,.36,1) 0.2s forwards;
     }
 
     .hero-subtitle {
@@ -104,15 +104,35 @@
       letter-spacing: 0.2em;
       margin-top: 2rem;
       opacity: 0;
-      animation: fadeSlideIn 0.8s ease 0.8s forwards;
+      animation: fadeIn 0.1s linear 1.1s forwards;
     }
+
+    .hero-subtitle .char {
+      display: inline-block;
+      opacity: 0;
+      animation: charAppear 0.5s cubic-bezier(.22,1,.36,1) forwards;
+    }
+
+    .hero-subtitle .char-sep {
+      display: inline-block;
+      opacity: 0;
+      animation: charAppear 0.3s cubic-bezier(.22,1,.36,1) 1.5s forwards;
+    }
+
+    .hero-subtitle .char:nth-child(1) { animation-delay: 1.1s; }
+    .hero-subtitle .char:nth-child(2) { animation-delay: 1.25s; }
+    .hero-subtitle .char:nth-child(3) { animation-delay: 1.4s; }
+    .hero-subtitle .char:nth-child(5) { animation-delay: 1.7s; }
+    .hero-subtitle .char:nth-child(6) { animation-delay: 1.85s; }
+    .hero-subtitle .char:nth-child(7) { animation-delay: 2.0s; }
+    .hero-subtitle .char:nth-child(8) { animation-delay: 2.15s; }
 
     .hero-links {
       display: flex;
       gap: 1.5rem;
       margin-top: 2rem;
       opacity: 0;
-      animation: fadeIn 0.6s ease 1.2s forwards;
+      animation: slideUp 0.7s cubic-bezier(.22,1,.36,1) 2.8s forwards;
     }
 
     .hero-links a {
@@ -146,18 +166,31 @@
       background: #c4a747;
       margin: 3rem auto 0;
       opacity: 0;
-      animation: fadeGrow 0.6s ease 1.5s forwards;
+      animation: pillarGrow 1s cubic-bezier(.22,1,.36,1) 2.5s forwards;
     }
 
-    @keyframes fadeGrow {
-      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
-      100% { opacity: 0.2; transform: scaleY(1); transform-origin: top; }
+    @keyframes pillarGrow {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+      40% { opacity: 0.4; transform: scaleY(1.05); transform-origin: bottom; }
+      100% { opacity: 0.2; transform: scaleY(1); transform-origin: bottom; }
     }
 
     /* ── Animations ── */
-    @keyframes fadeSlideIn {
-      0% { opacity: 0; transform: translateY(8px); }
-      100% { opacity: 0.35; transform: translateY(0); }
+    @keyframes heroReveal {
+      0% { opacity: 0; transform: translateY(24px) scale(0.96); }
+      60% { opacity: 1; transform: translateY(-2px) scale(1.01); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes charAppear {
+      0% { opacity: 0; transform: translateY(12px) scale(0.9); filter: blur(4px); }
+      60% { opacity: 1; transform: translateY(-2px) scale(1.05); filter: blur(0); }
+      100% { opacity: 0.35; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+
+    @keyframes slideUp {
+      0% { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -413,7 +446,7 @@
     </nav>
     <header id="top">
       <h1 class="hero-name">Yau Le Qi</h1>
-      <p class="hero-subtitle">饶乐祺 · 自强不息</p>
+      <p class="hero-subtitle"><span class="char">饶</span><span class="char">乐</span><span class="char">祺</span><span class="char-sep"> · </span><span class="char">自</span><span class="char">强</span><span class="char">不</span><span class="char">息</span></p>
       <div class="hero-links">
         <a href="https://github.com/teraSurfer40141">GitHub</a>
         <a href="https://www.linkedin.com/in/lqyau/">LinkedIn</a>
