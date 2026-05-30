@@ -24,6 +24,17 @@
       padding: 0 3rem 8rem;
     }
 
+    /* ── Scroll Progress ── */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: #c4a747;
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+
     /* ── Nav ── */
     nav {
       position: fixed;
@@ -62,7 +73,7 @@
       letter-spacing: 0.06em;
       color: #8a8578;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.3s, opacity 0.3s;
       opacity: 0.6;
     }
 
@@ -81,7 +92,7 @@
     }
 
     .hero-name {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       font-size: clamp(4rem, 12vw, 9rem);
       color: #c4a747;
@@ -146,6 +157,18 @@
       100% { opacity: 1; }
     }
 
+    /* ── Scroll Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* ── Sections ── */
     section {
       margin-top: 0;
@@ -189,17 +212,28 @@
       margin-bottom: 2.5rem;
       padding-left: 130px;
       position: relative;
+      transition: background 0.3s;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-radius: 4px;
+    }
+
+    .exp-entry:hover {
+      background: rgba(196, 167, 71, 0.03);
     }
 
     .exp-year {
       position: absolute;
-      left: 0; top: 0;
+      left: 0; top: 0.5rem;
       color: #8a8578;
       font-weight: 300;
       font-size: 0.85rem;
       width: 110px;
       opacity: 0.5;
+      transition: opacity 0.3s;
     }
+
+    .exp-entry:hover .exp-year { opacity: 0.8; }
 
     .exp-role { color: #e8e4db; font-size: 0.95rem; }
 
@@ -207,9 +241,10 @@
       color: #8a8578;
       text-decoration: none;
       transition: color 0.3s;
+      border-bottom: 1px solid transparent;
     }
 
-    .exp-role a:hover { color: #e8e4db; }
+    .exp-role a:hover { color: #e8e4db; border-bottom-color: rgba(138,133,120,0.3); }
 
     .exp-desc {
       font-size: 0.85rem;
@@ -220,10 +255,19 @@
     }
 
     /* ── Research ── */
-    .research-entry { margin-bottom: 4rem; }
+    .research-entry {
+      margin-bottom: 4rem;
+      padding: 1rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .research-entry:hover {
+      background: rgba(196, 167, 71, 0.03);
+    }
 
     .research-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       font-size: 1.25rem;
       color: #e8e4db;
@@ -259,9 +303,10 @@
       color: #8a8578;
       text-decoration: none;
       transition: color 0.3s ease;
+      border-bottom: 1px solid transparent;
     }
 
-    a.outbound:hover { color: #e8e4db; }
+    a.outbound:hover { color: #e8e4db; border-bottom-color: rgba(138,133,120,0.3); }
 
     a.outbound::after {
       content: " ↗";
@@ -277,10 +322,27 @@
       font-size: 0.95rem;
       color: #e8e4db;
       opacity: 0.85;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      transition: background 0.3s, opacity 0.3s;
+    }
+
+    .quest-list li:hover {
+      background: rgba(196, 167, 71, 0.03);
+      opacity: 1;
     }
 
     .quest-year { color: #8a8578; font-weight: 300; opacity: 0.5; }
     .quest-desc { color: #e8e4db; }
+
+    .quest-desc a {
+      color: #e8e4db;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(138,133,120,0.3);
+      transition: border-color 0.3s;
+    }
+
+    .quest-desc a:hover { border-bottom-color: rgba(232,228,219,0.5); }
 
     /* ── Footer ── */
     footer {
@@ -329,6 +391,8 @@
   </style>
 </head>
 <body>
+  <div class="progress-bar" id="progressBar"></div>
+
   <main>
     <header id="top">
       <h1 class="hero-name">Yau Le Qi</h1>
@@ -342,62 +406,70 @@
     </header>
 
     <section id="about">
-      <h2 class="section-header"><span class="section-marker">§ 01</span> About</h2>
-      <p><span class="about-now">Incoming CS student at Hughes Hall, Cambridge. Currently building AI tools at Quest Ventures.</span> I just finished National Service as a section commander. Before NS I did some research in AI safety and malware detection, ran a student computing event, and interned at a couple of places. Still at it.</p>
+      <div class="reveal">
+        <h2 class="section-header"><span class="section-marker">§ 01</span> About</h2>
+        <p><span class="about-now">Incoming CS student at Hughes Hall, Cambridge. Currently building AI tools at Quest Ventures.</span> I just finished National Service as a section commander. Before NS I did some research in AI safety and malware detection, ran a student computing event, and interned at a couple of places. Still at it.</p>
+      </div>
     </section>
 
     <section id="experience">
-      <h2 class="section-header"><span class="section-marker">§ 02</span> Experience</h2>
-      <div class="exp-entry">
-        <span class="exp-year">2026 —</span>
-        <span class="exp-role">AI Engineer Intern, <a href="https://www.questventures.com">Quest Ventures</a></span>
-        <div class="exp-desc">Building AI tools at a Southeast Asian venture capital firm.</div>
-      </div>
-      <div class="exp-entry">
-        <span class="exp-year">2024–2026</span>
-        <span class="exp-role">Section Commander, Singapore Army</span>
-        <div class="exp-desc">Led two batches in Dragon Company, BMTC School 1.</div>
-      </div>
-      <div class="exp-entry">
-        <span class="exp-year">2024</span>
-        <span class="exp-role">Educational Technology Intern, <a href="https://tinkertanker.com">Tinkertanker</a></span>
-        <div class="exp-desc">Built tools for student learning and education technology.</div>
-      </div>
-      <div class="exp-entry">
-        <span class="exp-year">2022</span>
-        <span class="exp-role">Cybersecurity Intern, <a href="https://www.dsta.gov.sg">DSTA</a></span>
-        <div class="exp-desc">Defence technology internship during junior college.</div>
+      <div class="reveal">
+        <h2 class="section-header"><span class="section-marker">§ 02</span> Experience</h2>
+        <div class="exp-entry">
+          <span class="exp-year">2026 —</span>
+          <span class="exp-role">AI Engineer Intern, <a href="https://www.questventures.com">Quest Ventures</a></span>
+          <div class="exp-desc">Building AI tools at a Southeast Asian venture capital firm.</div>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-year">2024–2026</span>
+          <span class="exp-role">Section Commander, Singapore Army</span>
+          <div class="exp-desc">Led two batches in Dragon Company, BMTC School 1.</div>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-year">2024</span>
+          <span class="exp-role">Educational Technology Intern, <a href="https://tinkertanker.com">Tinkertanker</a></span>
+          <div class="exp-desc">Built tools for student learning and education technology.</div>
+        </div>
+        <div class="exp-entry">
+          <span class="exp-year">2022</span>
+          <span class="exp-role">Cybersecurity Intern, <a href="https://www.dsta.gov.sg">DSTA</a></span>
+          <div class="exp-desc">Defence technology internship during junior college.</div>
+        </div>
       </div>
     </section>
 
     <section id="research">
-      <h2 class="section-header"><span class="section-marker">§ 03</span> Research</h2>
-      <div class="research-entry">
-        <div class="research-title">WalledEval: A Comprehensive Safety Evaluation Toolkit for LLMs</div>
-        <div class="research-venue">EMNLP Demo 2024</div>
-        <div class="research-desc">Co-developed a Python library for evaluating LLM safety across jailbreak benchmarks, datasets, and judges. Published at EMNLP 2024.</div>
-        <div class="research-links">
-          <a href="https://arxiv.org/abs/2408.03837" class="outbound">Paper</a><span class="link-sep"> · </span><a href="https://arxiv.org/pdf/2408.03837" class="outbound">PDF</a><span class="link-sep"> · </span><a href="https://github.com/walledai/walledeval" class="outbound">Repo</a>
+      <div class="reveal">
+        <h2 class="section-header"><span class="section-marker">§ 03</span> Research</h2>
+        <div class="research-entry">
+          <div class="research-title">WalledEval: A Comprehensive Safety Evaluation Toolkit for LLMs</div>
+          <div class="research-venue">EMNLP Demo 2024</div>
+          <div class="research-desc">Co-developed a Python library for evaluating LLM safety across jailbreak benchmarks, datasets, and judges. Published at EMNLP 2024.</div>
+          <div class="research-links">
+            <a href="https://arxiv.org/abs/2408.03837" class="outbound">Paper</a><span class="link-sep"> · </span><a href="https://arxiv.org/pdf/2408.03837" class="outbound">PDF</a><span class="link-sep"> · </span><a href="https://github.com/walledai/walledeval" class="outbound">Repo</a>
+          </div>
         </div>
-      </div>
-      <div class="research-entry">
-        <div class="research-title">A Novel Feature Vector for AI-assisted Windows Malware Detection</div>
-        <div class="research-venue">IEEE DASC 2023</div>
-        <div class="research-desc">Designed a behavioural feature vector for dynamic malware analysis using Cuckoo Sandbox and deep transfer learning.</div>
-        <div class="research-links">
-          <a href="https://ieeexplore.ieee.org/document/10361451" class="outbound">Paper</a><span class="link-sep"> · </span><a href="https://www.researchgate.net/publication/374030409_A_Novel_Feature_Vector_for_AI-assisted_Windows_Malware_Detection" class="outbound">PDF</a>
+        <div class="research-entry">
+          <div class="research-title">A Novel Feature Vector for AI-assisted Windows Malware Detection</div>
+          <div class="research-venue">IEEE DASC 2023</div>
+          <div class="research-desc">Designed a behavioural feature vector for dynamic malware analysis using Cuckoo Sandbox and deep transfer learning.</div>
+          <div class="research-links">
+            <a href="https://ieeexplore.ieee.org/document/10361451" class="outbound">Paper</a><span class="link-sep"> · </span><a href="https://www.researchgate.net/publication/374030409_A_Novel_Feature_Vector_for_AI-assisted_Windows_Malware_Detection" class="outbound">PDF</a>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="achievements">
-      <h2 class="section-header"><span class="section-marker">§ 04</span> Achievements</h2>
-      <ul class="quest-list">
-        <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Organised <a href="https://buildingblocs.sg" style="color:#e8e4db;text-decoration:none;border-bottom:1px solid rgba(138,133,120,0.3);transition:border-color 0.3s" onmouseover="this.style.borderColor='rgba(232,228,219,0.5)'" onmouseout="this.style.borderColor='rgba(138,133,120,0.3)'">BuildingBloCS</a>, a student-run computing event</span></li>
-        <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Started Hack Club @ TJC</span></li>
-        <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Represented Singapore at the Global Cybersecurity Camp</span></li>
-        <li>— <span class="quest-year">2022–2023</span> · <span class="quest-desc">Vice crew leader, TJC JC Infocomm Club</span></li>
-      </ul>
+      <div class="reveal">
+        <h2 class="section-header"><span class="section-marker">§ 04</span> Achievements</h2>
+        <ul class="quest-list">
+          <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Organised <a href="https://buildingblocs.sg">BuildingBloCS</a>, a student-run computing event</span></li>
+          <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Started Hack Club @ TJC</span></li>
+          <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Represented Singapore at the Global Cybersecurity Camp</span></li>
+          <li>— <span class="quest-year">2022–2023</span> · <span class="quest-desc">Vice crew leader, TJC JC Infocomm Club</span></li>
+        </ul>
+      </div>
     </section>
 
     <footer>
@@ -412,5 +484,28 @@
       </div>
     </nav>
   </main>
+
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', function() {
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var progress = (scrollTop / scrollHeight) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    });
+
+    // Scroll reveal
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
