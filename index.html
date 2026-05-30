@@ -129,9 +129,22 @@
       color: #8a8578;
       text-decoration: none;
       transition: color 0.3s;
+      position: relative;
+    }
+
+    .hero-links a::before {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 100%; height: 1px;
+      background: currentColor;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.22,1,.36,1);
     }
 
     .hero-links a:hover { color: #e8e4db; }
+    .hero-links a:hover::before { transform-origin: left; transform: scaleX(1); }
 
     .hero-rule {
       width: 1px;
@@ -157,17 +170,22 @@
       100% { opacity: 1; }
     }
 
-    /* ── Scroll Reveal ── */
     .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity 0.9s cubic-bezier(.22,1,.36,1), transform 0.9s cubic-bezier(.22,1,.36,1);
+          will-change: opacity, transform;
+        }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        .reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
     /* ── Sections ── */
     section {
@@ -243,10 +261,22 @@
       color: #8a8578;
       text-decoration: none;
       transition: color 0.3s;
-      border-bottom: 1px solid transparent;
+      position: relative;
     }
 
-    .exp-role a:hover { color: #e8e4db; border-bottom-color: rgba(138,133,120,0.3); }
+    .exp-role a::before {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -1px;
+      width: 100%; height: 1px;
+      background: currentColor;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+    }
+
+    .exp-role a:hover { color: #e8e4db; }
+    .exp-role a:hover::before { transform-origin: left; transform: scaleX(1); }
 
     .exp-desc {
       font-size: 0.85rem;
@@ -305,10 +335,22 @@
       color: #8a8578;
       text-decoration: none;
       transition: color 0.3s ease;
-      border-bottom: 1px solid transparent;
+      position: relative;
     }
 
-    a.outbound:hover { color: #e8e4db; border-bottom-color: rgba(138,133,120,0.3); }
+    a.outbound::before {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -1px;
+      width: 100%; height: 1px;
+      background: currentColor;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+    }
+
+    a.outbound:hover { color: #e8e4db; }
+    a.outbound:hover::before { transform-origin: left; transform: scaleX(1); }
 
     a.outbound::after {
       content: " ↗";
@@ -340,11 +382,22 @@
     .quest-desc a {
       color: #e8e4db;
       text-decoration: none;
-      border-bottom: 1px solid rgba(138,133,120,0.3);
-      transition: border-color 0.3s;
+      position: relative;
     }
 
-    .quest-desc a:hover { border-bottom-color: rgba(232,228,219,0.5); }
+    .quest-desc a::before {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -1px;
+      width: 100%; height: 1px;
+      background: currentColor;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+      opacity: 0.3;
+    }
+
+    .quest-desc a:hover::before { transform-origin: left; transform: scaleX(1); opacity: 0.5; }
 
     /* ── Footer ── */
     footer {
@@ -416,7 +469,7 @@
     </section>
 
     <section id="experience">
-      <div class="reveal">
+      <div class="reveal reveal-delay-1">
         <h2 class="section-header"><span class="section-marker">§ 02</span> Experience</h2>
         <div class="exp-entry">
           <span class="exp-year">2026 —</span>
@@ -442,7 +495,7 @@
     </section>
 
     <section id="research">
-      <div class="reveal">
+          <div class="reveal reveal-delay-2">
         <h2 class="section-header"><span class="section-marker">§ 03</span> Research</h2>
         <div class="research-entry">
           <div class="research-title">WalledEval: A Comprehensive Safety Evaluation Toolkit for LLMs</div>
@@ -464,7 +517,7 @@
     </section>
 
     <section id="achievements">
-      <div class="reveal">
+          <div class="reveal reveal-delay-3">
         <h2 class="section-header"><span class="section-marker">§ 04</span> Achievements</h2>
         <ul class="quest-list">
           <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Organised <a href="https://buildingblocs.sg">BuildingBloCS</a>, a student-run computing event</span></li>
