@@ -28,13 +28,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 24px;
       z-index: 100;
-      max-width: 1024px;
-      margin: 0 auto;
       background: #0d0d0a;
       border-bottom: 1px solid rgba(196, 167, 71, 0.06);
     }
@@ -43,7 +37,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 20px 24px;
     }
 
     .nav-left {
@@ -85,7 +81,7 @@
       justify-content: flex-start;
       align-items: center;
       text-align: center;
-      padding-top: clamp(160px, 22vh, 220px);
+      padding-top: 188px;
       padding-bottom: 8vh;
     }
 
@@ -391,7 +387,7 @@
 
     @media (max-width: 600px) {
       body { padding: 0 1.5rem 6rem; }
-      nav { padding: 14px 20px; }
+      nav .inner { padding: 14px 20px; }
       .nav-right { gap: 32px; }
       .nav-right a { font-size: 0.6rem; }
       .hero-name { font-size: clamp(3rem, 14vw, 6rem); }
