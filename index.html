@@ -24,17 +24,6 @@
       padding: 0 3rem 8rem;
     }
 
-    /* ── Scroll Progress ── */
-    .progress-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      background: #c4a747;
-      width: 0%;
-      z-index: 200;
-      transition: width 0.1s linear;
-    }
-
     /* ── Nav ── */
     nav {
       position: fixed;
@@ -44,8 +33,27 @@
       align-items: center;
       padding: 2rem clamp(3rem, 8vw, 6rem);
       z-index: 100;
+      max-width: 680px;
+      margin: 0 auto;
+      background: transparent;
+      transition: background 0.3s ease, border-bottom 0.3s ease;
+      border-bottom: 1px solid transparent;
       opacity: 0;
       animation: fadeIn 0.6s ease 1.6s forwards;
+    }
+
+    nav.nav-scrolled {
+      background: rgba(8, 8, 8, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(138, 133, 120, 0.15);
+    }
+
+    nav .inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
 
     .nav-left {
@@ -154,26 +162,16 @@
       opacity: 0;
       animation: fadeGrow 0.6s ease 1.5s forwards;
     }
-    .hero-bio {
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      font-size: 0.85rem;
-      color: #8a8578;
-      margin-top: 2rem;
-      letter-spacing: 0.02em;
-      line-height: 1.6;
-      opacity: 0;
-      animation: fadeSlideIn 0.6s ease 1.6s forwards;
-    }
-
-    @keyframes fadeSlideIn {
-      0% { opacity: 0; transform: translateY(8px); }
-      100% { opacity: 0.35; transform: translateY(0); }
-    }
 
     @keyframes fadeGrow {
       0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
       100% { opacity: 0.2; transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeSlideIn {
+      0% { opacity: 0; transform: translateY(8px); }
+      100% { opacity: 0.35; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -182,30 +180,26 @@
     }
 
     .reveal {
-          opacity: 0;
-          transform: translateY(16px);
-          transition: opacity 0.9s cubic-bezier(.22,1,.36,1), transform 0.9s cubic-bezier(.22,1,.36,1);
-          will-change: opacity, transform;
-        }
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.9s cubic-bezier(.22,1,.36,1), transform 0.9s cubic-bezier(.22,1,.36,1);
+      will-change: opacity, transform;
+    }
 
-        .reveal.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
 
     /* ── Sections ── */
     section {
       margin-top: 0;
-      padding-top: 200px;
-      padding-bottom: 40px;
+      padding-top: 140px;
     }
-
-    #about { padding-top: 240px; }
 
     .section-header {
       font-family: 'Inter', sans-serif;
@@ -220,30 +214,11 @@
 
     .section-marker { color: #c4a747; opacity: 1; }
 
-    /* ── About ── */
-    #about p {
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #e8e4db;
-      max-width: 520px;
-      margin-bottom: 1rem;
-    }
-
-    #about .about-now {
-      font-weight: 400;
-      color: #e8e4db;
-      opacity: 0.8;
-      margin-bottom: 1.5rem;
-    }
-
     /* ── Experience ── */
     .exp-entry {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       padding-left: 130px;
       position: relative;
-      transition: background 0.3s;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
       border-radius: 4px;
@@ -289,17 +264,9 @@
     .exp-role a:hover { color: #e8e4db; }
     .exp-role a:hover::before { transform-origin: left; transform: scaleX(1); }
 
-    .exp-desc {
-      font-size: 0.85rem;
-      color: #8a8578;
-      opacity: 0.7;
-      margin-top: 0.3rem;
-      line-height: 1.5;
-    }
-
     /* ── Research ── */
     .research-entry {
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
       padding: 1rem;
       border-radius: 4px;
       transition: background 0.3s;
@@ -326,15 +293,6 @@
       font-style: italic;
       opacity: 0.6;
       margin-bottom: 0.5rem;
-    }
-
-    .research-desc {
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      font-size: 0.9rem;
-      color: #8a8578;
-      margin-bottom: 0.5rem;
-      opacity: 0.8;
     }
 
     .research-links { font-size: 0.8rem; margin-top: 0.75rem; }
@@ -448,7 +406,7 @@
       .hero-name { font-size: clamp(3rem, 14vw, 6rem); }
       .hero-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
       #top { padding-bottom: 6vh; }
-      section { padding-top: 120px; }
+      section { padding-top: 100px; }
       .exp-entry { padding-left: 0; margin-top: 1.5rem; }
       .exp-year { position: static; width: auto; display: block; margin-bottom: 0.3rem; }
       .research-title { font-size: 1.1rem; }
@@ -457,8 +415,6 @@
   </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
-
   <main>
     <header id="top">
       <h1 class="hero-name">Yau Le Qi</h1>
@@ -469,9 +425,7 @@
         <a href="mailto:leqi@yauleqi.com">Email</a>
       </div>
       <div class="hero-rule"></div>
-      <p class="hero-bio">Incoming CS student at Hughes Hall, Cambridge. Currently building AI tools at Quest Ventures.</p>
     </header>
-
 
     <section id="experience">
       <div class="reveal reveal-delay-1">
@@ -479,33 +433,28 @@
         <div class="exp-entry">
           <span class="exp-year">2026 —</span>
           <span class="exp-role">AI Engineer Intern, <a href="https://www.questventures.com">Quest Ventures</a></span>
-          <div class="exp-desc">Building AI tools at a Southeast Asian venture capital firm.</div>
         </div>
         <div class="exp-entry">
           <span class="exp-year">2024–2026</span>
           <span class="exp-role">Section Commander, Singapore Army</span>
-          <div class="exp-desc">Led two batches in Dragon Company, BMTC School 1.</div>
         </div>
         <div class="exp-entry">
           <span class="exp-year">2024</span>
           <span class="exp-role">Educational Technology Intern, <a href="https://tinkertanker.com">Tinkertanker</a></span>
-          <div class="exp-desc">Built tools for student learning and education technology.</div>
         </div>
         <div class="exp-entry">
           <span class="exp-year">2022</span>
           <span class="exp-role">Cybersecurity Intern, <a href="https://www.dsta.gov.sg">DSTA</a></span>
-          <div class="exp-desc">Defence technology internship during junior college.</div>
         </div>
       </div>
     </section>
 
     <section id="research">
-          <div class="reveal reveal-delay-2">
+      <div class="reveal reveal-delay-2">
         <h2 class="section-header"><span class="section-marker">§ 02</span> Research</h2>
         <div class="research-entry">
           <div class="research-title">WalledEval: A Comprehensive Safety Evaluation Toolkit for LLMs</div>
           <div class="research-venue">EMNLP Demo 2024</div>
-          <div class="research-desc">Co-developed a Python library for evaluating LLM safety across jailbreak benchmarks, datasets, and judges. Published at EMNLP 2024.</div>
           <div class="research-links">
             <a href="https://arxiv.org/abs/2408.03837" class="outbound">Paper</a><span class="link-sep"> · </span><a href="https://arxiv.org/pdf/2408.03837" class="outbound">PDF</a><span class="link-sep"> · </span><a href="https://github.com/walledai/walledeval" class="outbound">Repo</a>
           </div>
@@ -513,7 +462,6 @@
         <div class="research-entry">
           <div class="research-title">A Novel Feature Vector for AI-assisted Windows Malware Detection</div>
           <div class="research-venue">IEEE DASC 2023</div>
-          <div class="research-desc">Designed a behavioural feature vector for dynamic malware analysis using Cuckoo Sandbox and deep transfer learning.</div>
           <div class="research-links">
             <a href="https://ieeexplore.ieee.org/document/10361451" class="outbound">Paper</a><span class="link-sep"> · </span><a href="https://www.researchgate.net/publication/374030409_A_Novel_Feature_Vector_for_AI-assisted_Windows_Malware_Detection" class="outbound">PDF</a>
           </div>
@@ -522,7 +470,7 @@
     </section>
 
     <section id="achievements">
-          <div class="reveal reveal-delay-3">
+      <div class="reveal reveal-delay-3">
         <h2 class="section-header"><span class="section-marker">§ 03</span> Achievements</h2>
         <ul class="quest-list">
           <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Organised <a href="https://buildingblocs.sg">BuildingBloCS</a>, a student-run computing event</span></li>
@@ -539,20 +487,25 @@
     </footer>
 
     <nav>
-      <a href="#top" class="nav-left">饶</a>
-      <div class="nav-right">
-        <a href="#experience">Experience</a><span class="nav-sep">·</span><a href="#research">Research</a><span class="nav-sep">·</span><a href="#achievements">Achievements</a>
+      <div class="inner">
+        <a href="#top" class="nav-left">饶</a>
+        <div class="nav-right">
+          <a href="#experience">Experience</a><span class="nav-sep">·</span><a href="#research">Research</a><span class="nav-sep">·</span><a href="#achievements">Achievements</a>
+        </div>
       </div>
     </nav>
   </main>
 
   <script>
-    // Scroll progress bar
+    // Nav frosted glass on scroll
     window.addEventListener('scroll', function() {
       var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      var progress = (scrollTop / scrollHeight) * 100;
-      document.getElementById('progressBar').style.width = progress + '%';
+      var nav = document.querySelector('nav');
+      if (scrollTop > 100) {
+        nav.classList.add('nav-scrolled');
+      } else {
+        nav.classList.remove('nav-scrolled');
+      }
     });
 
     // Scroll reveal
