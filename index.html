@@ -154,6 +154,17 @@
       opacity: 0;
       animation: fadeGrow 0.6s ease 1.5s forwards;
     }
+    .hero-bio {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: #8a8578;
+      margin-top: 2rem;
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeSlideIn 0.6s ease 1.6s forwards;
+    }
 
     @keyframes fadeSlideIn {
       0% { opacity: 0; transform: translateY(8px); }
@@ -458,19 +469,13 @@
         <a href="mailto:leqi@yauleqi.com">Email</a>
       </div>
       <div class="hero-rule"></div>
+      <p class="hero-bio">Incoming CS student at Hughes Hall, Cambridge. Currently building AI tools at Quest Ventures.</p>
     </header>
 
-    <section id="about">
-      <div class="reveal">
-        <h2 class="section-header"><span class="section-marker">§ 01</span> About</h2>
-        <p class="about-now">Incoming CS student at Hughes Hall, Cambridge. Currently building AI tools at Quest Ventures.</p>
-        <p>I just finished National Service as a section commander. Before NS I did some research in AI safety and malware detection, ran a student computing event, and interned at a couple of places. Still at it.</p>
-      </div>
-    </section>
 
     <section id="experience">
       <div class="reveal reveal-delay-1">
-        <h2 class="section-header"><span class="section-marker">§ 02</span> Experience</h2>
+        <h2 class="section-header"><span class="section-marker">§ 01</span> Experience</h2>
         <div class="exp-entry">
           <span class="exp-year">2026 —</span>
           <span class="exp-role">AI Engineer Intern, <a href="https://www.questventures.com">Quest Ventures</a></span>
@@ -496,7 +501,7 @@
 
     <section id="research">
           <div class="reveal reveal-delay-2">
-        <h2 class="section-header"><span class="section-marker">§ 03</span> Research</h2>
+        <h2 class="section-header"><span class="section-marker">§ 02</span> Research</h2>
         <div class="research-entry">
           <div class="research-title">WalledEval: A Comprehensive Safety Evaluation Toolkit for LLMs</div>
           <div class="research-venue">EMNLP Demo 2024</div>
@@ -518,7 +523,7 @@
 
     <section id="achievements">
           <div class="reveal reveal-delay-3">
-        <h2 class="section-header"><span class="section-marker">§ 04</span> Achievements</h2>
+        <h2 class="section-header"><span class="section-marker">§ 03</span> Achievements</h2>
         <ul class="quest-list">
           <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Organised <a href="https://buildingblocs.sg">BuildingBloCS</a>, a student-run computing event</span></li>
           <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Started Hack Club @ TJC</span></li>
@@ -536,7 +541,7 @@
     <nav>
       <a href="#top" class="nav-left">饶</a>
       <div class="nav-right">
-        <a href="#about">About</a><span class="nav-sep">·</span><a href="#experience">Experience</a><span class="nav-sep">·</span><a href="#research">Research</a><span class="nav-sep">·</span><a href="#achievements">Achievements</a>
+        <a href="#experience">Experience</a><span class="nav-sep">·</span><a href="#research">Research</a><span class="nav-sep">·</span><a href="#achievements">Achievements</a>
       </div>
     </nav>
   </main>
