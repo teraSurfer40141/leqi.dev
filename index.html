@@ -8,11 +8,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&family=Noto+Serif+SC:wght@400&display=swap');
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
 
@@ -31,9 +27,7 @@
     /* ── Nav ── */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -41,6 +35,8 @@
       max-width: 680px;
       margin: 0 auto;
       z-index: 100;
+      opacity: 0;
+      animation: fadeIn 1s ease 2.8s forwards;
     }
 
     .nav-left {
@@ -75,7 +71,7 @@
     .nav-right a:hover { color: #e8e4db; opacity: 1; }
     .nav-sep { color: #8a8578; opacity: 0.25; font-size: 0.65rem; }
 
-    /* ── Hero — the Daibutsu ── */
+    /* ── Hero ── */
     #top {
       min-height: 100vh;
       display: flex;
@@ -95,6 +91,41 @@
       letter-spacing: -0.02em;
     }
 
+    .hero-name .char {
+      display: inline-block;
+      opacity: 0;
+      animation: charReveal 0.8s ease forwards;
+    }
+
+    /* Stagger: Y=0, a=0.15, u=0.3, L=0.5, e=0.65, Q=0.85, i=1.0 */
+    .hero-name .char:nth-child(1) { animation-delay: 0.4s; }
+    .hero-name .char:nth-child(2) { animation-delay: 0.55s; }
+    .hero-name .char:nth-child(3) { animation-delay: 0.7s; }
+    .hero-name .char:nth-child(4) { animation-delay: 0.85s; } /* space */
+    .hero-name .char:nth-child(5) { animation-delay: 1.0s; }
+    .hero-name .char:nth-child(6) { animation-delay: 1.15s; }
+    .hero-name .char:nth-child(7) { animation-delay: 1.3s; } /* space */
+    .hero-name .char:nth-child(8) { animation-delay: 1.45s; }
+    .hero-name .char:nth-child(9) { animation-delay: 1.6s; }
+
+    @keyframes charReveal {
+      0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(8px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+    .hero-space {
+      display: inline-block;
+      width: 0.3em;
+    }
+
     .hero-subtitle {
       font-family: 'Noto Serif SC', serif;
       font-weight: 400;
@@ -102,7 +133,8 @@
       color: #c4a747;
       letter-spacing: 0.2em;
       margin-top: 2rem;
-      opacity: 0.5;
+      opacity: 0;
+      animation: fadeSlideIn 1.2s ease 2.2s forwards;
     }
 
     .hero-rule {
@@ -110,7 +142,8 @@
       height: 60px;
       background: #c4a747;
       margin: 3rem auto 0;
-      opacity: 0.3;
+      opacity: 0;
+      animation: fadeGrow 1s ease 2.6s forwards;
     }
 
     .scroll-hint {
@@ -119,17 +152,32 @@
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       color: #8a8578;
-      opacity: 0.3;
+      opacity: 0;
       margin-top: 2rem;
       text-transform: lowercase;
+      animation: fadeIn 1s ease 3.2s forwards;
     }
 
-    /* ── Sections — the halls ── */
+    @keyframes fadeSlideIn {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 0.5; transform: translateY(0); }
+    }
+
+    @keyframes fadeGrow {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      100% { opacity: 0.3; transform: scaleY(1); transform-origin: top; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* ── Sections ── */
     section {
       margin-top: 0;
       padding-top: 200px;
       padding-bottom: 40px;
-      border-top: none;
     }
 
     .section-header {
@@ -164,8 +212,7 @@
 
     .exp-year {
       position: absolute;
-      left: 0;
-      top: 0;
+      left: 0; top: 0;
       color: #8a8578;
       font-weight: 300;
       font-size: 0.85rem;
@@ -173,10 +220,7 @@
       opacity: 0.5;
     }
 
-    .exp-role {
-      color: #e8e4db;
-      font-size: 0.95rem;
-    }
+    .exp-role { color: #e8e4db; font-size: 0.95rem; }
 
     .exp-role a {
       color: #8a8578;
@@ -187,9 +231,7 @@
     .exp-role a:hover { color: #e8e4db; }
 
     /* ── Research ── */
-    .research-entry {
-      margin-bottom: 4rem;
-    }
+    .research-entry { margin-bottom: 4rem; }
 
     .research-title {
       font-family: 'Playfair Display', serif;
@@ -239,10 +281,7 @@
     }
 
     /* ── Side Quests ── */
-    .quest-list {
-      list-style: none;
-      padding: 0;
-    }
+    .quest-list { list-style: none; padding: 0; }
 
     .quest-list li {
       margin-bottom: 1.5rem;
@@ -251,15 +290,10 @@
       opacity: 0.85;
     }
 
-    .quest-year {
-      color: #8a8578;
-      font-weight: 300;
-      opacity: 0.5;
-    }
-
+    .quest-year { color: #8a8578; font-weight: 300; opacity: 0.5; }
     .quest-desc { color: #e8e4db; }
 
-    /* ── Footer — the inscription ── */
+    /* ── Footer ── */
     footer {
       margin-top: 100px;
       padding-top: 80px;
@@ -267,9 +301,7 @@
       border-top: 1px solid rgba(196, 167, 71, 0.1);
     }
 
-    .footer-links {
-      margin-bottom: 2rem;
-    }
+    .footer-links { margin-bottom: 2rem; }
 
     .footer-links a {
       font-family: 'Inter', sans-serif;
@@ -301,43 +333,22 @@
       letter-spacing: 0.15em;
     }
 
-    /* ── Focus ── */
     a:focus-visible {
       outline: 1px solid #c4a747;
       outline-offset: 3px;
     }
 
-    /* ── Responsive ── */
     @media (max-width: 600px) {
       body { padding: 0 1.5rem 6rem; }
-
       nav { padding: 1.2rem 1.5rem; }
-
       .nav-right { gap: 0.2rem; }
       .nav-right a { font-size: 0.6rem; }
-
-      .hero-name {
-        font-size: clamp(3rem, 14vw, 6rem);
-      }
-
+      .hero-name { font-size: clamp(3rem, 14vw, 6rem); }
       #top { padding-bottom: 6vh; }
-
       section { padding-top: 120px; }
-
-      .exp-entry {
-        padding-left: 0;
-        margin-top: 1.5rem;
-      }
-
-      .exp-year {
-        position: static;
-        width: auto;
-        display: block;
-        margin-bottom: 0.3rem;
-      }
-
+      .exp-entry { padding-left: 0; margin-top: 1.5rem; }
+      .exp-year { position: static; width: auto; display: block; margin-bottom: 0.3rem; }
       .research-title { font-size: 1.1rem; }
-
       footer { margin-top: 60px; padding-top: 50px; }
     }
   </style>
@@ -345,7 +356,9 @@
 <body>
   <main>
     <header id="top">
-      <h1 class="hero-name">Yau Le Qi</h1>
+      <h1 class="hero-name">
+        <span class="char">Y</span><span class="char">a</span><span class="char">u</span><span class="hero-space"> </span><span class="char">L</span><span class="char">e</span><span class="hero-space"> </span><span class="char">Q</span><span class="char">i</span>
+      </h1>
       <p class="hero-subtitle">饶乐祺 · 自强不息</p>
       <div class="hero-rule"></div>
       <p class="scroll-hint">scroll</p>
