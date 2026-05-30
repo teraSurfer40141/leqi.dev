@@ -65,11 +65,11 @@ export default function App() {
           >
             饶
           </span>
-          <div className="flex flex-wrap gap-x-2.5 gap-y-1 font-sans text-[12px] tracking-wide text-[#8a8578] items-center">
+          <div className="flex flex-wrap gap-x-2.5 gap-y-1 font-sans text-[12px] tracking-[0.04em] text-[#8a8578] items-center">
             <a 
               href="#about" 
               onClick={(e) => handleScrollTo(e, 'about')} 
-              className={`${activeSection === 'about' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-[300] tracking-[0.06em] text-[12px]`}
+              className={`${activeSection === 'about' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-sans font-normal tracking-[0.04em] text-[12px]`}
             >
               About
             </a>
@@ -77,7 +77,7 @@ export default function App() {
             <a 
               href="#experience" 
               onClick={(e) => handleScrollTo(e, 'experience')} 
-              className={`${activeSection === 'experience' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-[300] tracking-[0.06em] text-[12px]`}
+              className={`${activeSection === 'experience' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-sans font-normal tracking-[0.04em] text-[12px]`}
             >
               Experience
             </a>
@@ -85,7 +85,7 @@ export default function App() {
             <a 
               href="#research" 
               onClick={(e) => handleScrollTo(e, 'research')} 
-              className={`${activeSection === 'research' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-[300] tracking-[0.06em] text-[12px]`}
+              className={`${activeSection === 'research' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-sans font-normal tracking-[0.04em] text-[12px]`}
             >
               Research
             </a>
@@ -93,7 +93,7 @@ export default function App() {
             <a 
               href="#side-quests" 
               onClick={(e) => handleScrollTo(e, 'side-quests')} 
-              className={`${activeSection === 'side-quests' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-[300] tracking-[0.06em] text-[12px]`}
+              className={`${activeSection === 'side-quests' ? 'text-[#c4a747]' : 'text-[#8a8578] hover:text-[#e8e4db]'} transition-colors duration-200 ease-in-out font-sans font-normal tracking-[0.04em] text-[12px]`}
             >
               Side Quests
             </a>
@@ -121,10 +121,10 @@ function HeroSection() {
       className="min-h-[100vh] flex flex-col justify-center pb-[4rem] relative border-none bg-transparent"
     >
       <div className="relative z-10 bg-transparent flex flex-col justify-center flex-1">
-        <h1 className="font-serif text-[clamp(3rem,8vw,6rem)] font-[300] leading-[1.1] tracking-[0.05em] bg-transparent">
+        <h1 className="font-serif text-[clamp(3rem,8vw,6rem)] font-normal leading-[1.1] tracking-[0.05em] bg-transparent">
           <span className="text-[#e8e4db]">Yau</span> <span className="text-[#c4a747]">Le Qi</span>
         </h1>
-        <div className="font-serif-zh font-[300] text-[clamp(0.9rem,2.5vw,1rem)] tracking-[0.2em] mt-[0.6rem] leading-[1.8]">
+        <div className="font-serif-zh font-normal text-[clamp(0.9rem,2.5vw,1rem)] tracking-[0.2em] mt-[0.6rem] leading-[1.8]">
           <span className="text-[#e8e4db]">饶乐祺</span> <span className="text-[#8a8578]">·</span> <span className="text-[#c4a747]">自强不息</span>
         </div>
         <div className="h-[2px] w-[70px] bg-[#c4a747] mt-8" />
@@ -136,12 +136,9 @@ function HeroSection() {
 function SectionTitle({ number, children }: { number?: string; children: React.ReactNode }) {
   return (
     <div className="mb-8">
-      <h2 className="font-mono text-[12px] tracking-[0.3em] uppercase font-[300] leading-[1.8]">
+      <h2 className="font-sans text-[13px] tracking-[0.05em] font-normal leading-[1.8]">
         {number ? (
-          <>
-            <span className="text-[#c4a747]">§ {number}</span>
-            <span className="text-[#8a8578]/40 mx-2">·</span>
-          </>
+          <span className="text-[#c4a747] mr-2">§ {number}</span>
         ) : null}
         <span className="text-[#e8e4db]">{children}</span>
       </h2>
@@ -156,7 +153,7 @@ function AboutSection() {
       className="py-[4rem] relative border-none"
     >
       <SectionTitle number="01">About</SectionTitle>
-      <p className="font-sans text-[17px] font-[300] text-[#e8e4db] leading-[1.6]" style={{ maxWidth: '48ch' }}>
+      <p className="font-sans text-[17px] font-normal text-[#e8e4db] leading-[1.6]" style={{ maxWidth: '48ch' }}>
         I just finished National Service as a section commander and I'm heading to Hughes Hall, 
         Cambridge in October to read Computer Science. 
         Before NS I did some research in AI safety and malware detection, ran a student 
@@ -217,16 +214,16 @@ function ExperienceSection() {
             </div>
             <div className="hidden md:block" style={{ width: '1px', background: 'rgba(138,133,120,0.2)', alignSelf: 'stretch', margin: '0 1.5rem' }}></div>
             <div className="flex-1 mt-1 md:mt-0">
-              <h3 className="font-serif text-[24px] font-[300] text-[#e8e4db] mb-3 leading-none mt-[-2px]">
+              <h3 className="font-sans text-[24px] font-normal text-[#e8e4db] mb-3 leading-none mt-[-2px]">
                 {exp.url ? (
-                  <a href={exp.url} target="_blank" rel="noopener noreferrer" className="no-arrow font-[300] hover:text-[#e8e4db] transition-colors">
+                  <a href={exp.url} target="_blank" rel="noopener noreferrer" className="no-arrow font-normal hover:text-[#e8e4db] transition-colors">
                     {exp.company}
                   </a>
                 ) : (
                   exp.company
                 )}
               </h3>
-              <p className="font-sans text-[15px] text-[#8a8578] font-[300] leading-[1.6]">
+              <p className="font-sans text-[15px] text-[#8a8578] font-normal leading-[1.6]">
                 {exp.description}
               </p>
             </div>
@@ -273,10 +270,10 @@ function ResearchSection() {
             <span className="font-mono text-[12px] text-[#8a8578] block mb-2 leading-[1.8]">
               {paper.venue}
             </span>
-            <h3 className="font-serif text-[32px] font-[300] mb-3 leading-[1.2] text-[#e8e4db]">
+            <h3 className="font-sans text-[24px] font-semibold mb-3 leading-[1.3] text-[#e8e4db]">
               {paper.title}
             </h3>
-            <p className="font-sans text-[15px] text-[#e8e4db] font-[300] mb-4 leading-[1.6]">
+            <p className="font-sans text-[15px] text-[#e8e4db] font-normal mb-4 leading-[1.6]">
               {paper.description}
             </p>
             {paper.links && (
@@ -287,7 +284,7 @@ function ResearchSection() {
                       href={link.url} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="outbound-link text-[#8a8578] hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-[300]"
+                      className="outbound-link text-[#8a8578] hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-normal"
                     >
                       {link.text}
                     </a>
@@ -325,7 +322,7 @@ function SideQuestsSection() {
             <span className="font-mono text-[12px] text-[#8a8578] w-[4.5rem] whitespace-nowrap shrink-0 leading-[1.8]">
               {quest.year}
             </span>
-            <span className="font-sans text-[15px] font-[300] text-[#e8e4db] leading-[1.6]">
+            <span className="font-sans text-[15px] font-normal text-[#e8e4db] leading-[1.6]">
               {quest.text}
             </span>
           </li>
@@ -347,7 +344,7 @@ function InterestsSection() {
       className="py-[4rem] relative border-none"
     >
       <SectionTitle>Interests</SectionTitle>
-      <div className="font-mono text-[13px] text-[#e8e4db] font-[300] leading-[1.8]">
+      <div className="font-mono text-[13px] text-[#e8e4db] font-normal leading-[1.8]">
         {interests.map((interest, idx) => (
           <React.Fragment key={interest}>
             {interest}
@@ -368,7 +365,7 @@ function Footer() {
           href="https://github.com/teraSurfer40141" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-[300]"
+          className="hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-normal"
         >
           GitHub
         </a>
@@ -377,14 +374,14 @@ function Footer() {
           href="https://www.linkedin.com/in/lqyau/" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-[300]"
+          className="hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-normal"
         >
           LinkedIn
         </a>
         <span className="text-[#8a8578]/40 select-none">·</span>
         <a 
           href="mailto:hello@leqi.dev" 
-          className="hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-[300]"
+          className="hover:text-[#e8e4db] transition-colors duration-200 ease-in-out font-normal"
         >
           Email
         </a>
@@ -392,7 +389,7 @@ function Footer() {
       <div className="font-mono text-[12px] text-[#8a8578] leading-[1.8] text-center">
         © 2026 Yau Le Qi
       </div>
-      <div className="text-center font-serif-zh font-[300] text-[13px] text-[#8a8578] tracking-[0.2em] leading-[1.8]">
+      <div className="text-center font-serif-zh font-normal text-[13px] text-[#8a8578] tracking-[0.2em] leading-[1.8]">
         饶乐祺 <span className="text-[#8a8578] opacity-50">·</span> <span className="text-[#c4a747]">自强不息</span>
       </div>
     </footer>
