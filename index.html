@@ -89,41 +89,8 @@
       color: #c4a747;
       line-height: 0.95;
       letter-spacing: -0.02em;
-    }
-
-    .hero-name .char {
-      display: inline-block;
       opacity: 0;
-      animation: charReveal 0.8s ease forwards;
-    }
-
-    /* Stagger: Y=0, a=0.15, u=0.3, L=0.5, e=0.65, Q=0.85, i=1.0 */
-    .hero-name .char:nth-child(1) { animation-delay: 0.4s; }
-    .hero-name .char:nth-child(2) { animation-delay: 0.55s; }
-    .hero-name .char:nth-child(3) { animation-delay: 0.7s; }
-    .hero-name .char:nth-child(4) { animation-delay: 0.85s; } /* space */
-    .hero-name .char:nth-child(5) { animation-delay: 1.0s; }
-    .hero-name .char:nth-child(6) { animation-delay: 1.15s; }
-    .hero-name .char:nth-child(7) { animation-delay: 1.3s; } /* space */
-    .hero-name .char:nth-child(8) { animation-delay: 1.45s; }
-    .hero-name .char:nth-child(9) { animation-delay: 1.6s; }
-
-    @keyframes charReveal {
-      0% {
-        opacity: 0;
-        filter: blur(8px);
-        transform: translateY(8px);
-      }
-      100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-      }
-    }
-
-    .hero-space {
-      display: inline-block;
-      width: 0.3em;
+      animation: fadeIn 1.5s ease 0.8s forwards;
     }
 
     .hero-subtitle {
@@ -146,26 +113,14 @@
       animation: fadeGrow 1s ease 2.6s forwards;
     }
 
-    .scroll-hint {
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      color: #8a8578;
-      opacity: 0;
-      margin-top: 2rem;
-      text-transform: lowercase;
-      animation: fadeIn 1s ease 3.2s forwards;
-    }
-
     @keyframes fadeSlideIn {
       0% { opacity: 0; transform: translateY(12px); }
-      100% { opacity: 0.5; transform: translateY(0); }
+      100% { opacity: 0.35; transform: translateY(0); }
     }
 
     @keyframes fadeGrow {
       0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
-      100% { opacity: 0.3; transform: scaleY(1); transform-origin: top; }
+      100% { opacity: 0.2; transform: scaleY(1); transform-origin: top; }
     }
 
     @keyframes fadeIn {
@@ -179,6 +134,8 @@
       padding-top: 200px;
       padding-bottom: 40px;
     }
+
+    #about { padding-top: 240px; }
 
     .section-header {
       font-family: 'Inter', sans-serif;
@@ -357,11 +314,11 @@
   <main>
     <header id="top">
       <h1 class="hero-name">
-        <span class="char">Y</span><span class="char">a</span><span class="char">u</span><span class="hero-space"> </span><span class="char">L</span><span class="char">e</span><span class="hero-space"> </span><span class="char">Q</span><span class="char">i</span>
+Yau Le Qi
       </h1>
       <p class="hero-subtitle">饶乐祺 · 自强不息</p>
       <div class="hero-rule"></div>
-      <p class="scroll-hint">scroll</p>
+
     </header>
 
     <section id="about">
