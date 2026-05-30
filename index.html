@@ -1,58 +1,398 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yau Le Qi</title>
-    <meta name="description" content="Personal website and portfolio of Yau Le Qi (饶乐祺). Reading Computer Science at Cambridge. Research in AI safety and malware detection." />
-    <meta name="keywords" content="Yau Le Qi, Le Qi Yau, 饶乐祺, Computer Science, Cambridge, Hughes Hall, AI safety, malware detection, software engineer, portfolio, lqyau05, lqyau" />
-    <meta name="author" content="Yau Le Qi" />
-    <meta name="robots" content="index, follow" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-    <link rel="canonical" href="https://leqi.dev/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://leqi.dev/" />
-    <meta property="og:title" content="Yau Le Qi" />
-    <meta property="og:description" content="Personal website and portfolio of Yau Le Qi. Reading Computer Science at Cambridge. Research in AI safety and malware detection." />
-    <meta property="og:site_name" content="Yau Le Qi" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yau Le Qi — Computer Science, Cambridge">
+  <title>Yau Le Qi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400&family=Noto+Serif+SC:wght@400&display=swap');
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://leqi.dev/" />
-    <meta name="twitter:title" content="Yau Le Qi" />
-    <meta name="twitter:description" content="Personal website and portfolio of Yau Le Qi. Reading Computer Science at Cambridge. Research in AI safety and malware detection." />
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Yau Le Qi",
-        "alternateName": ["Le Qi Yau", "饶乐祺"],
-        "url": "https://leqi.dev",
-        "jobTitle": "Incoming Computer Science Student",
-        "alumniOf": [
-          {
-            "@type": "CollegeOrUniversity",
-            "name": "University of Cambridge",
-            "department": "Hughes Hall"
-          }
-        ],
-        "knowsAbout": ["Computer Science", "AI Safety", "Malware Detection", "Software Engineering"],
-        "sameAs": [
-          "https://github.com/teraSurfer40141",
-          "https://www.linkedin.com/in/lqyau/"
-        ]
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0f0d0a;
+      color: #e8e4db;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 4rem 4rem 6rem 4rem;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      max-width: 700px;
+      margin: 0 auto;
+      z-index: 100;
+    }
+
+    .nav-left {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #c4a747;
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    .nav-right a {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: #8a8578;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-right a:hover {
+      color: #e8e4db;
+    }
+
+    .nav-sep {
+      color: #8a8578;
+      opacity: 0.4;
+      font-size: 0.7rem;
+    }
+
+    #top {
+      padding-top: 25vh;
+      text-align: center;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #e8e4db;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #c4a747;
+      letter-spacing: 0.15em;
+      margin-top: 0.75rem;
+    }
+
+    .hero-rule {
+      width: 70px;
+      border-bottom: 2px solid #c4a747;
+      margin: 1.5rem auto 0;
+    }
+
+    section {
+      margin-top: 50px;
+      padding-top: 60px;
+      border-top: 1px solid rgba(138, 133, 120, 0.2);
+    }
+
+    .section-header {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: #8a8578;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .section-marker {
+      color: #c4a747;
+    }
+
+    .exp-entry {
+      margin-bottom: 1.5rem;
+    }
+
+    .exp-year {
+      color: #8a8578;
+      font-weight: 400;
+      display: inline-block;
+      width: 120px;
+    }
+
+    .exp-role {
+      color: #e8e4db;
+    }
+
+    .exp-role a {
+      color: #8a8578;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .exp-role a:hover {
+      color: #e8e4db;
+    }
+
+    .research-entry {
+      margin-bottom: 2.5rem;
+    }
+
+    .research-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #e8e4db;
+      margin-bottom: 0.25rem;
+    }
+
+    .research-venue {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      color: #8a8578;
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+
+    .research-desc {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: #8a8578;
+      margin-bottom: 0.35rem;
+    }
+
+    .research-links {
+      font-size: 0.8rem;
+    }
+
+    .research-links .link-sep {
+      color: #8a8578;
+      opacity: 0.4;
+    }
+
+    a.outbound {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: #8a8578;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a.outbound:hover {
+      color: #e8e4db;
+    }
+
+    a.outbound::after {
+      content: " ↗";
+      color: inherit;
+      font-size: 0.8em;
+    }
+
+    .quest-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .quest-list li {
+      margin-bottom: 1rem;
+      color: #e8e4db;
+    }
+
+    .quest-year {
+      color: #8a8578;
+      font-weight: 400;
+    }
+
+    .quest-desc {
+      color: #e8e4db;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding-top: 60px;
+      border-top: 1px solid rgba(138, 133, 120, 0.2);
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      font-family: 'Inter', sans-serif;
+      color: #8a8578;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #e8e4db;
+    }
+
+    .footer-sep {
+      color: #8a8578;
+      opacity: 0.4;
+    }
+
+    .footer-copyright {
+      font-family: 'Inter', sans-serif;
+      color: rgba(138, 133, 120, 0.6);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-chinese {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #c4a747;
+      margin-top: 0.5rem;
+    }
+
+    a:focus-visible {
+      outline: 1px solid #c4a747;
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem;
+        font-size: 16px;
       }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
 
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-right {
+        gap: 0.15rem;
+      }
+
+      .nav-right a {
+        font-size: 0.65rem;
+      }
+
+      .hero-name {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      section {
+        margin-top: 30px;
+        padding-top: 30px;
+      }
+
+      .exp-year {
+        display: block;
+        width: auto;
+        margin-bottom: 0.25rem;
+      }
+
+      footer {
+        margin-top: 30px;
+        padding-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header id="top">
+      <h1 class="hero-name">Yau Le Qi</h1>
+      <p class="hero-subtitle">饶乐祺 · 自强不息</p>
+      <div class="hero-rule"></div>
+    </header>
+
+    <section id="about">
+      <h2 class="section-header"><span class="section-marker">§ 01</span> About</h2>
+      <p>I just finished National Service as a section commander and I'm heading to Hughes Hall, Cambridge in October to read Computer Science. Before NS I did some research in AI safety and malware detection, ran a student computing event, and interned at a couple of places. Still at it.</p>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-header"><span class="section-marker">§ 02</span> Experience</h2>
+      <div class="exp-entry">
+        <span class="exp-year">2026 —</span>
+        <span class="exp-role">AI Engineer Intern, <a href="https://www.questventures.com">Quest Ventures</a></span>
+      </div>
+      <div class="exp-entry">
+        <span class="exp-year">2024–2026 —</span>
+        <span class="exp-role">Section Commander, Singapore Army</span>
+      </div>
+      <div class="exp-entry">
+        <span class="exp-year">2024 —</span>
+        <span class="exp-role">Educational Technology Intern, <a href="https://tinkertanker.com">Tinkertanker</a></span>
+      </div>
+      <div class="exp-entry">
+        <span class="exp-year">2022 —</span>
+        <span class="exp-role">Cybersecurity Intern, <a href="https://www.dsta.gov.sg">DSTA</a></span>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2 class="section-header"><span class="section-marker">§ 03</span> Research</h2>
+      <div class="research-entry">
+        <div class="research-title">WalledEval: A Comprehensive Safety Evaluation Toolkit for LLMs</div>
+        <div class="research-venue">EMNLP Demo 2024</div>
+        <div class="research-desc">Safety evaluation toolkit for LLMs.</div>
+        <div class="research-links">
+          <a href="https://aclanthology.org/2024.emnlp-demo.36/" class="outbound">Publication</a><span class="link-sep"> · </span><a href="https://aclanthology.org/2024.emnlp-demo.36.pdf" class="outbound">PDF</a><span class="link-sep"> · </span><a href="https://github.com/Pragnyaa/walledeval" class="outbound">Repo</a>
+        </div>
+      </div>
+      <div class="research-entry">
+        <div class="research-title">A Novel Feature Vector for AI-assisted Windows Malware Detection</div>
+        <div class="research-venue">IEEE DASC 2023</div>
+        <div class="research-desc">Behavioural approach to detecting malware at runtime.</div>
+        <div class="research-links">
+          <a href="https://ieeexplore.ieee.org/document/10426363" class="outbound">Publication</a><span class="link-sep"> · </span><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10426363" class="outbound">PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="side-quests">
+      <h2 class="section-header"><span class="section-marker">§ 04</span> Side Quests</h2>
+      <ul class="quest-list">
+        <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Organised BuildingBloCS, a student-run computing event</span></li>
+        <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Started Hack Club @ TJC</span></li>
+        <li>— <span class="quest-year">2023</span> · <span class="quest-desc">Represented Singapore at the Global Cybersecurity Camp</span></li>
+        <li>— <span class="quest-year">2022–2023</span> · <span class="quest-desc">Vice crew leader, TJC JC Infocomm Club</span></li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="https://github.com/teraSurfer40141">GitHub</a><span class="footer-sep"> · </span><a href="https://www.linkedin.com/in/lqyau/">LinkedIn</a><span class="footer-sep"> · </span><a href="mailto:leqi@yauleqi.com">Email</a>
+      </div>
+      <div class="footer-copyright">&copy; 2026 Yau Le Qi</div>
+      <div class="footer-chinese">饶乐祺 · 自强不息</div>
+    </footer>
+
+    <nav>
+      <a href="#top" class="nav-left">饶</a>
+      <div class="nav-right">
+        <a href="#about">About</a><span class="nav-sep">·</span><a href="#experience">Experience</a><span class="nav-sep">·</span><a href="#research">Research</a><span class="nav-sep">·</span><a href="#side-quests">Side Quests</a>
+      </div>
+    </nav>
+  </main>
+</body>
+</html>
